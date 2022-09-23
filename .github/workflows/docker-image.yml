@@ -23,7 +23,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   # github repository name as <repo>
   #  might even be set through echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//" if usernames on GitHub and DockerHub are identical
-  DOCKERHUB_IMAGE_NAME: docker-prince
+  #DOCKERHUB_IMAGE_NAME: docker-prince
 
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@7e0881f8fe90b25e305bbf0309761e9314607e25
         with:
-          cosign-release: 'v1.4.0'
+          cosign-release: 'v1.9.0'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
