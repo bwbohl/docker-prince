@@ -91,6 +91,11 @@ jobs:
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
         with:
           context: .
+          file: Dockerfile.debian
+          build-args: |
+            PRINCE_VERSION=14.3
+            DEBIAN_VERSION=10
+            BASE_IMAGE=10-slim
           push: ${{ github.event_name != 'pull_request' }}
           platforms: |
             linux/amd64
