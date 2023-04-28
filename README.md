@@ -22,6 +22,8 @@ docker run --rm -it -v $(pwd):/out yeslogic/prince:15.1 https://example.com/ -o 
 
 ## Building
 
+### Building with `make`
+
 Build all:
 
     make
@@ -38,6 +40,12 @@ Available targets:
 * `debian-9-slim`
 * `debian-10-slim`
 * `debian-11-slim`
+
+### Building a specific platform with Docker buildx
+
+```bash
+docker buildx build -f Dockerfile.debian -t docker-prince --build-arg PRINCE_VERSION=15.1 --build-arg DEBIAN_VERSION=11 --build-arg BASE_IMAGE=11-slim .
+```
 
 ## Publishing
 
